@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小红书 / 抖音双平台博主分析 · 项目作品页</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm 10mm; }
+  body { margin: 0; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #1a2230; font-size: 9.2pt; line-height: 1.55; background: #fff; }
+  .page { width: 186mm; margin: 0 auto; padding: 4mm 0 0; }
+  header { border-bottom: 2.5px solid #0a5bd3; padding-bottom: 4mm; margin-bottom: 4mm; }
+  .kicker { margin: 0 0 1mm; font-size: 7.5pt; letter-spacing: .18em; color: #0a5bd3; font-weight: 700; }
+  h1 { margin: 0 0 1.5mm; font-size: 19pt; line-height: 1.2; }
+  .meta { margin: 0 0 2mm; color: #5b6675; font-size: 8.2pt; }
+  .lede { margin: 0; font-size: 10pt; color: #12263f; background: #eef4ff; border-left: 3px solid #0a5bd3; padding: 2mm 3mm; }
+  h2 { font-size: 9.6pt; margin: 4mm 0 1.6mm; color: #0a5bd3; }
+  h2::before { content: "■"; font-size: 7pt; margin-right: 1.4mm; vertical-align: 1px; }
+  p { margin: 0 0 1.4mm; }
+  ul { margin: 0; padding-left: 4.2mm; } li { margin-bottom: 0.9mm; }
+  .metrics { display: flex; gap: 2.4mm; margin: 2mm 0 0; }
+  .metric { flex: 1; border: 1px solid #dde5ef; border-radius: 1.5mm; padding: 2mm; background: #fbfcfe; }
+  .metric b { display: block; font-size: 14pt; color: #0a5bd3; line-height: 1.15; }
+  .metric span { font-size: 7.4pt; color: #5b6675; }
+  table { width: 100%; border-collapse: collapse; font-size: 7.8pt; margin-top: 1mm; }
+  th, td { border-bottom: 1px solid #e3e9f1; padding: 1.1mm 1.6mm; text-align: left; }
+  th { background: #f4f7fb; color: #33455c; }
+  footer { margin-top: 4mm; border-top: 1px solid #e3e9f1; padding-top: 1.6mm; font-size: 7.2pt; color: #77828f; display: flex; justify-content: space-between; }
+  @media screen and (max-width: 780px) {
+    body { font-size: 14px; background: #fff; }
+    .page { width: auto; padding: 18px 16px 40px; }
+    h1 { font-size: 26px; }
+    .metrics { flex-wrap: wrap; }
+    .metric { flex: 1 1 40%; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+    footer { display: block; line-height: 1.8; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <p class="kicker">项目作品页 02 / 02</p>
+    <h1>小红书 / 抖音双平台博主分析</h1>
+    <p class="meta">2026.10 至今 ｜ 个人项目 ｜ TikHub API ｜ 54 篇作品样本 · 5 类画像数据</p>
+    <p class="lede">同一个人、同一批内容，为什么抖音能到 46 万赞，小红书只有 5 万？用同题材配对比较，把「平台差异」拆开来看。</p>
+  </header>
+
+  <h2>要回答的问题</h2>
+  <p>同内容跨平台分发，爆款量级由什么决定？哪些题材适合抖音引爆、哪些适合小红书沉淀？粉丝质量能不能支撑商业化判断？</p>
+
+  <h2>我做了什么</h2>
+  <ul>
+    <li>自己接入 TikHub API（账号、key、接口连通性验证），让 Agent 按接口取数。</li>
+    <li>定义样本与口径：小红书 42 篇 + 抖音 12 篇 = 54 篇；按「同题材」配对，而不是只比总量。</li>
+    <li>用点赞 / 收藏 / 分享三个比率区分内容类型：工具型看收藏率，观点型看分享率。</li>
+    <li>核对数据与结论，产出剖析报告、双平台对照表和单文件交互看板。</li>
+  </ul>
+
+  <h2>方法</h2>
+  <p>① 搜账号拿 user_id → ② 拉账号资料 / 作品 / 粉丝画像 / 相似博主 → ③ 同题材配对 → ④ 三率对比 → ⑤ 归纳平台调性并做看板。</p>
+
+  <div class="metrics">
+    <div class="metric"><b>54</b><span>篇作品样本<br>小红书 42 + 抖音 12</span></div>
+    <div class="metric"><b>8.7×</b><span>抖音放大天花板<br>非洲时间观 46.4 万赞</span></div>
+    <div class="metric"><b>6.8×</b><span>小红书反超案例<br>心理学网站 3.6 万赞</span></div>
+    <div class="metric"><b>75%</b><span>最高收藏率<br>工具型内容</span></div>
+  </div>
+
+  <h2>同题材双平台对照（核心发现）</h2>
+  <table>
+    <tr><th style="width:34%">题材</th><th style="width:20%">小红书</th><th style="width:20%">抖音</th><th>倍数</th></tr>
+    <tr><td>非洲时间观（10/02 · 10/04）</td><td>53,361 赞</td><td>464,169 赞</td><td>抖音 8.7×</td></tr>
+    <tr><td>热带无哲学（同日 10/07）</td><td>57,435 赞</td><td>57,178 赞</td><td>持平</td></tr>
+    <tr><td>心理学圆桌网站（07/06 · 05/20）</td><td>35,755 赞</td><td>5,285 赞</td><td>小红书 6.8×</td></tr>
+    <tr><td>vibecoding 教程（07/20 · 05/14）</td><td>1,343 赞</td><td>52,748 赞</td><td>抖音 39×</td></tr>
+  </table>
+
+  <h2>受众画像（粉丝数据）</h2>
+  <table>
+    <tr><th>性别</th><th>年龄</th><th>设备</th><th>地域 TOP</th></tr>
+    <tr><td>女 84.6% / 男 15.4%</td><td>18–24 岁 53.0%；25–34 岁 24.9%</td><td>苹果 46.6%（远高于平台均值）</td><td>广东 15.1%、浙江 8.1%、上海 8.1%、北京 7.6%</td></tr>
+  </table>
+
+  <h2>结论</h2>
+  <p>抖音是「引爆场」：天花板高，吃猎奇冷知识、搞钱副业；小红书是「沉淀场」：粉丝更粘，吃工具、审美和成长叙事。同一条内容两平台通吃的前提是「强观点」；工具型内容更适合放在小红书做收藏沉淀。</p>
+
+  <h2>产出物与局限</h2>
+  <p>产出：账号剖析报告、双平台爆款对照表、单文件交互式 HTML 看板（22KB，无后端依赖）、结构化数据摘录。</p>
+  <p>局限：分析对象是公开账号（momo / Www）而非本人账号；单样本、只覆盖抓取时点；不含商业转化数据，商业化判断只作参考。</p>
+
+  <footer>
+    <span>可提供材料：剖析报告 · 双平台对照表 · 交互看板 · 脱敏数据样例</span>
+    <span>俞羿辰 · 2026-10</span>
+  </footer>
+</div>
+</body>
+</html>

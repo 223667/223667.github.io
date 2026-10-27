@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美债 10Y-1Y 利差监控与日报 · 项目作品页</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm 10mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    color: #1a2230; font-size: 9.2pt; line-height: 1.55; background: #fff;
+  }
+  .page { width: 186mm; margin: 0 auto; padding: 4mm 0 0; }
+  header { border-bottom: 2.5px solid #0a5bd3; padding-bottom: 4mm; margin-bottom: 4mm; position: relative; }
+  .kicker { margin: 0 0 1mm; font-size: 7.5pt; letter-spacing: .18em; color: #0a5bd3; font-weight: 700; }
+  h1 { margin: 0 0 1.5mm; font-size: 19pt; line-height: 1.2; letter-spacing: .01em; }
+  .meta { margin: 0 0 2mm; color: #5b6675; font-size: 8.2pt; }
+  .lede { margin: 0; font-size: 10pt; color: #12263f; background: #eef4ff; border-left: 3px solid #0a5bd3; padding: 2mm 3mm; }
+  h2 { font-size: 9.6pt; margin: 4mm 0 1.6mm; color: #0a5bd3; letter-spacing: .04em; }
+  h2::before { content: "■"; font-size: 7pt; margin-right: 1.4mm; vertical-align: 1px; }
+  p { margin: 0 0 1.4mm; }
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin-bottom: 0.9mm; }
+  .row { display: flex; gap: 5mm; }
+  .row > div { flex: 1; }
+  figure { margin: 1mm 0 0; }
+  figure img { width: 100%; border: 1px solid #d5dce6; border-radius: 1.5mm; }
+  figcaption { font-size: 7.2pt; color: #77828f; margin-top: 0.8mm; }
+  .flow { display: flex; gap: 1.6mm; margin-top: 1mm; }
+  .flow div { flex: 1; text-align: center; background: #f4f7fb; border: 1px solid #dde5ef; border-radius: 1.5mm; padding: 1.6mm 1mm; font-size: 8pt; }
+  .flow b { display: block; color: #0a5bd3; font-size: 8.2pt; margin-bottom: 0.4mm; }
+  .metrics { display: flex; gap: 2.4mm; margin: 2mm 0 0; }
+  .metric { flex: 1; border: 1px solid #dde5ef; border-radius: 1.5mm; padding: 2mm; background: #fbfcfe; }
+  .metric b { display: block; font-size: 14pt; color: #0a5bd3; line-height: 1.15; }
+  .metric span { font-size: 7.4pt; color: #5b6675; }
+  table { width: 100%; border-collapse: collapse; font-size: 7.8pt; margin-top: 1mm; }
+  th, td { border-bottom: 1px solid #e3e9f1; padding: 1.1mm 1.6mm; text-align: left; vertical-align: top; }
+  th { background: #f4f7fb; font-weight: 700; color: #33455c; }
+  .tag { display: inline-block; font-size: 7pt; padding: 0.2mm 1.4mm; border-radius: 1mm; background: #eef4ff; color: #0a5bd3; margin-right: 1mm; }
+  .warn { color: #b4451b; }
+  footer { margin-top: 4mm; border-top: 1px solid #e3e9f1; padding-top: 1.6mm; font-size: 7.2pt; color: #77828f; display: flex; justify-content: space-between; }
+  @media screen and (max-width: 780px) {
+    body { font-size: 14px; background: #fff; }
+    .page { width: auto; padding: 18px 16px 40px; }
+    h1 { font-size: 26px; }
+    .row { display: block; }
+    .flow { flex-wrap: wrap; }
+    .flow div { flex: 1 1 28%; }
+    .metrics { flex-wrap: wrap; }
+    .metric { flex: 1 1 40%; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+    footer { display: block; line-height: 1.8; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <p class="kicker">项目作品页 01 / 02</p>
+    <h1>美债 10Y-1Y 利差监控与日报</h1>
+    <p class="meta">2026.07 – 2026.10 ｜ 个人项目 ｜ 上海 ｜ AI Agent 工作流 · 金融数据 · 自动化</p>
+    <p class="lede">把「美债利差到历史高位就买纳斯达克 ETF」这句模糊判断，变成每天 8:10 自动运行、可推送的阈值日报。</p>
+  </header>
+
+  <div class="row">
+    <div>
+      <h2>缘起</h2>
+      <p>2019 年知乎上有个回答：用 A 股账户买纳斯达克 ETF，等美债 10 年期与 1 年期收益率之差处于历史高位时买入，并预估 2021—2022 年会出现这个时点。但「历史高位」没有定义，也没有人每天盯。2026 年我把它落成规则，再交给 Agent 每天执行。</p>
+      <figure>
+        <img src="assets/zhihu.jpg" alt="2019 年知乎回答截图">
+        <figcaption>灵感来源：2019-05-19 知乎回答截图（已存档）</figcaption>
+      </figure>
+    </div>
+    <div>
+      <h2>我做了什么</h2>
+      <ul>
+        <li>把「高位买入」量化为阈值：<b>≥150BP 可买 / 50–150BP 观望 / &lt;50BP 不买</b>。</li>
+        <li>定义每日 8:10 自动运行的流水线，并确认输出格式（数值、区间、趋势、宏观事件）。</li>
+        <li>实测 4 类数据源：<b>FRED 主源 + Treasury.gov 官方曲线交叉验证</b>，弃用滞后 14 个交易日的源。</li>
+        <li>持续核对日报与官方源一致性；记录漏跑、延迟、重复触发等缺陷并改进。</li>
+      </ul>
+      <h2>分工说明</h2>
+      <p>抓取、计算、生成日报由 AI Agent 执行；我负责阈值口径、数据源决策与结果核对。</p>
+    </div>
+  </div>
+
+  <h2>系统如何运转</h2>
+  <div class="flow">
+    <div><b>① 定时触发</b>每日 8:10<br>北京时间</div>
+    <div><b>② 数据获取</b>1Y / 10Y<br>收益率</div>
+    <div><b>③ 计算与分级</b>利差 + 阈值<br>区间判断</div>
+    <div><b>④ 日报生成</b>趋势 + 宏观<br>事件解读</div>
+    <div><b>⑤ 推送与核对</b>微信推送<br>与官方源比对</div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><b>33</b><span>次运行记录<br>2026-09-07 → 10-27</span></div>
+    <div class="metric"><b>53–82<span style="font-size:9pt">BP</span></b><span>利差跟踪区间<br>9/17 低点 54BP</span></div>
+    <div class="metric"><b>4 类</b><span>数据源实测<br>2 条不可用</span></div>
+    <div class="metric"><b>14<span style="font-size:9pt">天</span></b><span>发现的滞后源头<br>已弃用</span></div>
+  </div>
+
+  <h2>数据源实测与选型</h2>
+  <table>
+    <tr><th style="width:24%">数据源</th><th style="width:16%">结论</th><th>依据</th></tr>
+    <tr><td>FRED（DGS1 / DGS10）</td><td><span class="tag">主源</span></td><td>多日与 Treasury.gov 完全一致，可追溯</td></tr>
+    <tr><td>Treasury.gov 官方曲线</td><td><span class="tag">官方校验</span></td><td>10/26 数据即取自此处，用于交叉验证</td></tr>
+    <tr><td>primerates.com</td><td>弃用</td><td>数据停在 10/08，滞后 14 个交易日</td></tr>
+    <tr><td>neodata / westock-data</td><td class="warn">不可用</td><td>前者在 Windows 必失败；后者宏观仅覆盖中国，不含美债</td></tr>
+  </table>
+
+  <div class="row" style="margin-top:3mm">
+    <div>
+      <h2>结果</h2>
+      <p>日报结构固定：数值卡片 → 利差位置与逐日变化 → 策略参考 → 数据来源与免责声明。示例（10-27）：1Y 4.47%、10Y 5.00%、利差 53BP，处于观望区间下沿，距 50BP 阈值仅 3BP，并提示 FOMC 会议风险。</p>
+    </div>
+    <div>
+      <h2>已知问题（主动暴露）</h2>
+      <p>10/20 漏跑一次；10/24、10/25、10/26 触发时间晚于 8:10；10/15 同日重复触发；推送依赖电脑开机。改进方向：补跑机制 + 异常告警 + 把自动化迁到常驻环境。</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>可提供材料：日报样例 · 33 次运行日志 · 数据源对照记录 · 脱敏代码</span>
+    <span>俞羿辰 · 2026-10</span>
+  </footer>
+</div>
+</body>
+</html>
